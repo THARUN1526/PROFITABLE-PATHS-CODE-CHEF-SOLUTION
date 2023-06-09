@@ -1,0 +1,41 @@
+ALGORITHM:
+
+1. The code includes necessary header files for input/output, string manipulation, vectors, and algorithms.
+
+2. The `using namespace std;` statement allows the usage of standard library elements without specifying the namespace.
+
+3. The `#define` statements define two constants: `SIZE` with a value of 300000 and `MOD` with a value of 1000000007. Additionally, a macro `MODx(x)` is defined to calculate the modulo of a number `x` with `MOD`.
+
+4. The `dfs` function is declared. It is a depth-first search function that performs a recursive traversal of the tree.
+
+   - It takes the following parameters:
+     - `adjLists[]`: An array of vectors representing adjacency lists of the tree nodes.
+     - `nodePasses[]`: An array to store the number of passes for each node.
+     - `visited[]`: A boolean array to keep track of visited nodes.
+     - `n`: The total number of nodes in the tree.
+     - `now`: The current node being visited.
+     - `leafCount`: The number of leaf nodes in the tree.
+
+   - The function returns an integer, representing the count of edges.
+
+5. Inside the `dfs` function:
+   - The `visited` array is updated to mark the current node as visited.
+   - Two local variables are declared: `count` to keep track of the count of edges, and `oneEdgeCount` to store the count of edges for each adjacent node.
+   - A `long long` variable `edgePass` is declared to calculate the number of passes for the current edge.
+   - The reference to the adjacency list of the current node is stored in the `adjList` variable.
+   - A loop iterates over the adjacent nodes of the current node.
+   - For each unvisited adjacent node:
+     - Recursive call to the `dfs` function is made to explore that node.
+     - The return value `oneEdgeCount` is stored.
+     - The number of passes for the current edge is calculated as the product of `oneEdgeCount` and `(leafCount - oneEdgeCount)`.
+     - The number of passes is updated for both the current node and the adjacent node.
+     - The count is incremented by `oneEdgeCount`.
+   - If `count` is zero, it means the current node is a leaf node.
+     - The number of passes for the leaf node is set to `(leafCount - 1)`.
+     - The function returns 1.
+   - Otherwise, the function returns the total count of edges.
+
+6. The `main` function is defined.
+   - It sets up input/output optimizations.
+   - It does not contain any code beyond these setup statements.
+

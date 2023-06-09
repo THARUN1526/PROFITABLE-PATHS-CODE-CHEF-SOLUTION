@@ -1,0 +1,15 @@
+TIME COMPLEXITY:
+
+In the `dfs` function, we perform a depth-first search traversal of the tree. The time complexity of this function can be analyzed as follows:
+
+- Visiting each node once takes O(n) time, where n is the total number of nodes in the tree.
+- For each node, we iterate over its adjacent nodes in the `adjList` vector. The size of the `adjList` vector for each node can vary, depending on the structure of the tree.
+- For each adjacent node, we recursively call the `dfs` function. The number of recursive calls depends on the number of adjacent nodes.
+- In the worst-case scenario, if the tree is a linear chain (each node has only one child except for the leaf node), then the number of recursive calls at each level is 1 less than the previous level. This leads to a total of O(n) recursive calls.
+- However, if the tree is well-balanced or has a more complex structure, the number of recursive calls can be different.
+
+Considering the worst-case scenario where the tree is a linear chain, the time complexity of the `dfs` function would be O(n). This is because we visit each node once and perform a constant amount of work for each node.
+
+Since the remaining code in the `main` function does not contain any significant computational steps and mainly focuses on setting up input/output optimizations, its time complexity can be considered as O(1), which means it has a constant time complexity.
+
+Therefore, overall, the time complexity of the given code is O(n), assuming the worst-case scenario of a linear chain tree.
